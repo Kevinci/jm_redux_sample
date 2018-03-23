@@ -23,10 +23,6 @@ export class FlightSearchComponent implements OnInit {
   flights$: Observable<Flight[]>;
   loading$: Observable<boolean>;
 
-  get flights() {
-    return this.flightService.flights;
-  }
-
   // "shopping basket" with selected flights
   basket: object = {
     "3": true,
@@ -35,7 +31,6 @@ export class FlightSearchComponent implements OnInit {
 
   constructor(
     private store: Store<FlightBookingState>,
-    private flightService: FlightService,
     private eventService: EventService
   ) {
   }
@@ -45,11 +40,6 @@ export class FlightSearchComponent implements OnInit {
     this.flights$ = this.store.select(s => s.flightBooking.flights);      
     this.loading$ = this.store.select(s => s.flightBooking.loading);
     
-    let flights: Flight[];
-    
-    
-    
-
   }
 
   select(f: Flight, selected: boolean) {

@@ -38,10 +38,6 @@
           Loading ...
         </div>
 
-        <div *ngIf="flights.length > 0">
-          {{flights.length}} flights found!
-        </div>
-
       </div>
     </form>
 
@@ -49,10 +45,6 @@
 </div>
 
 <div class="row">
-
-  <div *ngIf="flights$ | async as flight">
-    {{ flight | json }}
-  </div>
 
   <div *ngFor="let f of flights$ | async">
 
